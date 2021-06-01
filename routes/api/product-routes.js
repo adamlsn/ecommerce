@@ -123,7 +123,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  Category.destroy({
+  Product.destroy({
     where: {
       id: req.params.id
     }
@@ -133,6 +133,7 @@ router.delete('/:id', (req, res) => {
       res.status(404).json({ message: "No product found with this ID" });
       return;
     }
+    res.json(dbData);
   })
   .catch(err => {
     console.log(err);
